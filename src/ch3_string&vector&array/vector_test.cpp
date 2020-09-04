@@ -48,15 +48,24 @@ int main(int argc, char const *argv[])
                 cout <<i<<" "<<endl;
         }
 
-        vector<unsigned int> cnt(11,0);
-        unsigned int grade;
-        while(cin>>grade){
-                /*ctrl + D to stop*/
-                ++cnt[grade/10];
-        }
-        for(auto i: cnt){
+        // vector<unsigned int> cnt(11,0);
+        // unsigned int grade;
+        // while(cin>>grade){
+        //         /*ctrl + D to stop*/
+        //         ++cnt[grade/10];
+        // }
+        // for(auto i: cnt){
+        //         cout<<i<<" "<<endl;
+        // }
+
+        cout<<"v1";
+        for(auto i: v1){
                 cout<<i<<" "<<endl;
         }
-
+        v1.pop_back();
+        cout<<"v1 after pop_back";
+        for(auto i: v1){
+                cout<<i<<" "<<endl;
+        }      
         return 0;
 }
