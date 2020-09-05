@@ -1,19 +1,22 @@
 CFLAGE = -Wall -Og -std=c++11
 LIB = -lstdc++
-ALL = string_test vector_test vector_ex iterator_test 
+ALL = string_test vector_test vector_ex iterator_test\
+array_test
+COMPILE = gcc $(CFLAGE) -o
 all: $(ALL)
 
 string_test :string_test.cpp
-	gcc $(CFLAGE) -o string_test string_test.cpp $(LIB)
+	$(COMPILE) string_test string_test.cpp $(LIB)
 
 vector_test: vector_test.cpp
-	gcc $(CFLAGE) -o vector_test vector_test.cpp $(LIB)
+	$(COMPILE) vector_test vector_test.cpp $(LIB)
 
 vector_ex : vector_ex.cpp
-	gcc $(CFLAGE) -o vector_ex vector_ex.cpp $(LIB)
+	$(COMPILE) vector_ex vector_ex.cpp $(LIB)
 
 iterator_test: iterator_test.cpp
-	gcc $(CFLAGE) -o iterator_test iterator_test.cpp $(LIB)
-
+	$(COMPILE) iterator_test iterator_test.cpp $(LIB)
+array_test : array_test.cpp
+	$(COMPILE) array_test array_test.cpp $(LIB)	
 clean:
 	rm -f *.o $(ALL)
