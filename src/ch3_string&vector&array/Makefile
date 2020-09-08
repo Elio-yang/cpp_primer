@@ -16,6 +16,7 @@ vector_ex : vector_ex.cpp
 
 iterator_test: iterator_test.cpp
 	$(COMPILE) iterator_test iterator_test.cpp $(LIB)
+	
 array_test : array_test.cpp
 	$(COMPILE) array_test array_test.cpp $(LIB)	
 clean:
