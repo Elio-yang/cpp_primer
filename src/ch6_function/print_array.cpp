@@ -3,12 +3,13 @@
 #include <vector>
 
 using namespace std;
+//using Iter=vector<int>::const_iterator;
 #define SIZE 7
 void print_by_indentical(const int * a);
 void print_by_lib(const int * begin,const int * end);
 void print_by_arg(const int * a,size_t size);
 void print_by_ref(int (&arr)[SIZE]);
-void print_by_recursion(vector<int>::iterator it,vector<int> arr);
+void print_by_recursion(vector<int>::const_iterator beg,vector<int>::const_iterator end);
 
 int main(int argc, char const *argv[])
 {
@@ -18,7 +19,7 @@ int main(int argc, char const *argv[])
         print_by_lib(begin(a),end(a));
         print_by_arg(a,SIZE);
         print_by_ref(a);
-        print_by_recursion(arr.begin(),arr);
+        print_by_recursion(arr.cbegin(),arr.cend());
         return 0;
 }
 void print_by_indentical(const int * a)
@@ -52,11 +53,10 @@ void print_by_ref(int (&arr)[SIZE])
         }
         cout<<endl;
 }
-void print_by_recursion(vector<int>::iterator it,vector<int> arr)
+void print_by_recursion(vector<int>::const_iterator beg,vector<int>::const_iterator end)
 {
-        if(it==arr.end()){
-                return;
+        if(beg!=end){
+                cout<<*beg<<" ";
+                print_by_recursion(++beg,end);
         }
-        cout<<*it<<" ";
-        return print_by_recursion(++it,arr);
 }
