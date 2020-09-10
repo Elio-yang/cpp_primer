@@ -10,7 +10,7 @@ char* ptrS(string s)
         string::size_type size=s.size();
         char* str=(char*)malloc(sizeof(char)*(size+1));
         int i=0;
-        for(char c:s){
+        for(auto c:s){
                 str[i++]=c;
         }
         str[i]='\0';
