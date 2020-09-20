@@ -1,13 +1,36 @@
-{  
-    "version": "0.1.0",  
-    "showOutput": "always",  
-    "tasks": [  
-        {  
-            "taskName": "build",  
-            "command": "g++",  // C 语言就 gcc  
-            "isShellCommand": true,  
-            "showOutput": "always",  
-            "args": ["-g","-O1","-std=c++11","${file}", "-o", "${workspaceRoot}/${fileBasenameNoExtension}.o"]  // g++ 后面的命令参数  
-        }  
-    ]  
-}  
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "g++", 
+            "command": "C:\\MinGW\\bin\\g++.exe",
+            "args": [
+                "-g",
+                "-O1",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-ggdb3",   // 生成和调试有关的信息
+                "-Wall",    // 开启额外警告
+                "-static-libgcc",   // 静态链接
+                "-std=c++17",       // 使用c++17标准
+                "-finput-charset=UTF-8",    //输入编译器文本编码 默认为UTF-8
+                "-fexec-charset=GB18030",   //输出exe文件的编码
+                "-D _USE_MATH_DEFINES"
+            ],
+            "options": {
+                "cwd": "C:\\MinGW\\bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always", // 在“终端”中显示编译信息的策略，可以为always，silent，never
+                 "focus": false,
+                 "panel": "shared" // 不同的文件的编译信息共享一个终端面板
+            },
+        }
+    ]
+}
